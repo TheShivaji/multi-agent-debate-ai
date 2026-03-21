@@ -11,7 +11,9 @@
 ## 📸 Demo
 
 <p align="center">
-  <img src="./assets/demo.png" alt="Demo UI" width="800"/>
+  <img src="./assets/demo1.png" alt="Demo UI" width="800"/>
+  <img src="./assets/demo2.png" alt="Demo UI" width="800"/>
+  <img src="./assets/demo3.png" alt="Demo UI" width="800"/>
 </p>
 
 ---
