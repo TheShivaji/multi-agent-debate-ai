@@ -1,96 +1,155 @@
-# 🔥 Multi-Agent AI Debate System
+# 🔥 Multi-Agent AI Debate System 🤖⚔️
+
+### ⚡ Real-Time Multi-Agent Reasoning powered by Local LLMs
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![Ollama](https://img.shields.io/badge/LLM-Ollama-green)
 ![Gradio](https://img.shields.io/badge/UI-Gradio-orange)
 
-> ⚡ A real-time multi-agent AI debate system powered by local LLMs and Python streaming.
+> 🧠 A production-style **multi-agent AI system** that simulates real-time debates using local LLMs with streaming responses.
+
+---
+
+## 🎯 Why This Project?
+
+Most AI apps rely on a **single LLM response**.
+This project demonstrates **Agentic AI orchestration**, where multiple agents:
+
+* Think independently 🧠
+* Share context 🔄
+* Compete + evaluate ⚔️
+
+👉 Result: **More structured, intelligent, and explainable outputs**
 
 ---
 
 ## 📸 Demo
 
 <p align="center">
-  <img src="./assets/demo1.png" alt="Demo UI" width="800"/>
-  <img src="./assets/demo2.png" alt="Demo UI" width="800"/>
-  <img src="./assets/demo3.png" alt="Demo UI" width="800"/>
+  <img src="./assets/demo1.png" width="800"/>
+  <img src="./assets/demo2.png" width="800"/>
+  <img src="./assets/demo3.png" width="800"/>
 </p>
 
 ---
 
-## 🚀 Features
+## 🚀 Core Features
 
-- 🧠 **Multi-Agent Architecture:** Features 3 distinct personas (FOR / AGAINST / JUDGE).
-- 🔄 **Dynamic Context:** Works seamlessly with any user-provided topic.
-- ⚡ **Real-Time Streaming:** Built with Python generators (`yield`) for low-latency token-by-token output.
-- 💬 **State Management:** Maintains shared conversation memory across multiple agent calls.
-- 🖥️ **Interactive UI:** Powered by Gradio's `ChatInterface`.
-- 🧪 **100% Local & Private:** Runs entirely locally using Ollama.
+### 🧠 Multi-Agent Architecture
 
----
-
-## 🏗️ Tech Stack
-
-| Technology | Purpose |
-|------------|---------|
-| **Python** | Core Backend & Logic |
-| **Ollama** | Local LLM Engine (`llama3.2`) |
-| **Gradio** | Frontend Chat Interface |
-| **OpenAI SDK** | Standardized API wrapper for local models |
+* 🟢 **FOR Agent** → Supports the argument
+* 🔴 **AGAINST Agent** → Challenges the argument
+* ⚖️ **JUDGE Agent** → Evaluates both sides
 
 ---
 
-## 🧠 How It Works
+### ⚡ Real-Time Streaming
 
-The system passes the context sequentially through different agents to simulate a live debate:
+* Token-by-token output using Python `yield`
+* Low latency & live experience
+
+---
+
+### 🔄 Shared Context System
+
+* Maintains memory across agents
+* Enables coherent multi-step reasoning
+
+---
+
+### 🖥️ Interactive UI
+
+* Built with Gradio `ChatInterface`
+* Clean and responsive chat layout
+
+---
+
+### 🔒 Fully Local & Private
+
+* Runs on **Ollama (llama3.2)**
+* No external API calls
+* Complete data privacy
+
+---
+
+## 📌 Highlights
+
+✔ Multi-agent orchestration system
+✔ Real-time streaming architecture
+✔ Local LLM execution (privacy-first)
+✔ Context-aware reasoning across agents
+✔ Clean modular design
+
+---
+
+## 🏗️ System Architecture
 
 ```text
-[User Input: Topic] 
-       ↓
-(Prompt Builder: Injects Chat History)
-       ↓
-🟢 FOR Agent (Streams response & saves to history)
-       ↓
-🔴 AGAINST Agent (Reads history, streams counter-argument)
-       ↓
-⚖️ JUDGE Agent (Evaluates both sides, streams verdict)
-       ↓
-[Final Debate Output]
+User Input (Topic)
+        ↓
+Prompt Builder (Injects History)
+        ↓
+🟢 FOR Agent (Argument Generation)
+        ↓
+🔴 AGAINST Agent (Counter Argument)
+        ↓
+⚖️ JUDGE Agent (Evaluation & Verdict)
+        ↓
+Final Output (Structured Debate)
 ```
 
 ---
 
-## 📦 Installation & Setup
+## 🛠️ Tech Stack
 
-**1. Clone the repository:**
-```bash
-git clone [https://github.com/TheShivaji/llm-multi-agent-debate.git](https://github.com/TheShivaji/llm-multi-agent-debate.git)
+| Layer        | Technology                 |
+| ------------ | -------------------------- |
+| 🐍 Backend   | Python                     |
+| 🧠 LLM       | Ollama (llama3.2)          |
+| 🎨 UI        | Gradio                     |
+| 🔌 API Layer | OpenAI SDK (Local Wrapper) |
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone Repository
+
+```bash id="clone1"
+git clone https://github.com/TheShivaji/llm-multi-agent-debate.git
 cd llm-multi-agent-debate
 ```
 
-**2. Install dependencies:**
-```bash
+### 2️⃣ Install Dependencies
+
+```bash id="install1"
 pip install -r requirements.txt
 ```
 
-**3. Start the local LLM (Ollama):**
-Ensure Ollama is installed on your system, then run:
-```bash
+### 3️⃣ Start Local LLM (Ollama)
+
+```bash id="ollama1"
 ollama run llama3.2
 ```
 
-**4. Launch the application:**
-```bash
+---
+
+### 4️⃣ Run the App
+
+```bash id="run1"
 python app.py
 ```
 
 ---
 
-## 🧪 Example Topics to Try
+## 🧪 Example Topics
 
-- *Is AI dangerous for software engineers?*
-- *Remote work vs. In-office work.*
-- *Should college degrees be mandatory in tech?*
+Try testing the system with:
+
+* Is AI dangerous for software engineers?
+* Remote work vs in-office work
+* Should college degrees be mandatory in tech?
+* Is open-source better than proprietary software?
 
 ---
 
@@ -98,16 +157,63 @@ python app.py
 
 ```text
 llm-multi-agent-debate/
-├── app.py               # Main Gradio application & AI logic
-├── requirements.txt     # Python dependencies
-├── README.md            # Project documentation
-├── .gitignore           # Git ignore rules
+├── app.py
+├── requirements.txt
+├── README.md
+├── .gitignore
 └── assets/
-    └── demo.png         # UI preview image
+    ├── demo1.png
+    ├── demo2.png
+    └── demo3.png
 ```
+
+---
+
+## 🚀 Future Improvements
+
+* 🧠 Add memory persistence (Redis / DB)
+* 🎭 Add dynamic agent personalities
+* 🌐 Deploy with Docker + GPU support
+* 📊 Debate scoring metrics
 
 ---
 
 ## 👨‍💻 Author
 
-Built as a proof-of-concept for AI Engineering and LLM Orchestration 🚀
+### **Shivaji Jagdale**
+
+🚀 Full-Stack Developer | 🤖 AI Engineer | ⚡ Agentic Systems Builder
+
+* 🧠 Building **Multi-Agent AI Systems & GenAI Apps**
+* ⚡ Focused on **LLM orchestration & real-time systems**
+* 🔐 Strong foundation in **backend & scalable architecture**
+* 💡 Passionate about solving complex problems with AI
+
+---
+
+## 🌐 Connect with Me
+
+* 🐙 GitHub: https://github.com/TheShivaji
+* 💼 LinkedIn: https://linkedin.com/in/your-link
+* 📧 Email: [your-email@example.com](mailto:your-email@example.com)
+
+---
+
+## ⭐ Support
+
+If you found this project useful:
+
+⭐ Star this repo
+🍴 Fork it
+📢 Share it
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome!
+For major changes, please open an issue first.
+
+---
+
+
