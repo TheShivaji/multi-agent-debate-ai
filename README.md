@@ -1,219 +1,281 @@
-# 🔥 Multi-Agent AI Debate System 🤖⚔️
+<div align="center">
 
-### ⚡ Real-Time Multi-Agent Reasoning powered by Local LLMs
+```
+ ██████╗ ███████╗██████╗  █████╗ ████████╗███████╗    ███████╗██╗   ██╗███████╗
+ ██╔══██╗██╔════╝██╔══██╗██╔══██╗╚══██╔══╝██╔════╝    ██╔════╝╚██╗ ██╔╝██╔════╝
+ ██║  ██║█████╗  ██████╔╝███████║   ██║   █████╗      ███████╗ ╚████╔╝ ███████╗
+ ██║  ██║██╔══╝  ██╔══██╗██╔══██║   ██║   ██╔══╝      ╚════██║  ╚██╔╝  ╚════██║
+ ██████╔╝███████╗██████╔╝██║  ██║   ██║   ███████╗    ███████║   ██║   ███████║
+ ╚═════╝ ╚══════╝╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝    ╚══════╝   ╚═╝   ╚══════╝
+```
 
-![Python](https://img.shields.io/badge/Python-3.10-blue)
-![Ollama](https://img.shields.io/badge/LLM-Ollama-green)
-![Gradio](https://img.shields.io/badge/UI-Gradio-orange)
+# 🤖⚔️ Multi-Agent AI Debate System
 
-> 🧠 A production-style **multi-agent AI system** that simulates real-time debates using local LLMs with streaming responses.
+### Real-Time Multi-Agent Reasoning · Local LLMs · Zero Cloud Dependency
+
+<br/>
+
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Ollama](https://img.shields.io/badge/LLM-Ollama_llama3.2-49A657?style=for-the-badge)
+![Gradio](https://img.shields.io/badge/UI-Gradio-FF7C00?style=for-the-badge&logo=gradio&logoColor=white)
+![Local](https://img.shields.io/badge/Privacy-100%25_Local-6D28D9?style=for-the-badge)
+![Streaming](https://img.shields.io/badge/Output-Real--Time_Stream-0EA5E9?style=for-the-badge)
+
+<br/>
+
+![GitHub stars](https://img.shields.io/github/stars/TheShivaji/llm-multi-agent-debate?style=social)
+![GitHub forks](https://img.shields.io/github/forks/TheShivaji/llm-multi-agent-debate?style=social)
+
+</div>
 
 ---
 
-## 🎯 Why This Project?
+## 🎯 What Is This?
 
-Most AI apps rely on a **single LLM response**.
-This project demonstrates **Agentic AI orchestration**, where multiple agents:
+> Single LLM = one perspective. This project gives you **three agents arguing, countering, and judging** — like a real debate.
 
-* Think independently 🧠
-* Share context 🔄
-* Compete + evaluate ⚔️
+Most AI apps ask one model for one answer.
+This system demonstrates **Agentic AI orchestration** — where multiple LLMs:
 
-👉 Result: **More structured, intelligent, and explainable outputs**
+```
+  🟢 Think independently      →   Each agent has its own role & prompt
+  🔄 Share context             →   Memory flows across agents
+  ⚔️  Compete & challenge      →   FOR vs AGAINST dynamics
+  ⚖️  Get evaluated            →   JUDGE agent gives a structured verdict
+```
+
+**Result:** More structured, critical, and explainable AI reasoning.
 
 ---
 
 ## 📸 Demo
 
 <p align="center">
-  <img src="./assets/demo1.png" width="800"/>
-  <img src="./assets/demo2.png" width="800"/>
-  <img src="./assets/demo3.png" width="800"/>
+  <img src="./assets/demo1.png" width="800" alt="Debate UI - Topic Input"/>
+  <br/><sub>Topic Input → Agents Activate</sub>
+  <br/><br/>
+  <img src="./assets/demo2.png" width="800" alt="FOR vs AGAINST streaming"/>
+  <br/><sub>FOR vs AGAINST — Token-by-Token Streaming</sub>
+  <br/><br/>
+  <img src="./assets/demo3.png" width="800" alt="Judge verdict"/>
+  <br/><sub>JUDGE Agent — Final Verdict & Scoring</sub>
 </p>
-
----
-
-## 🚀 Core Features
-
-### 🧠 Multi-Agent Architecture
-
-* 🟢 **FOR Agent** → Supports the argument
-* 🔴 **AGAINST Agent** → Challenges the argument
-* ⚖️ **JUDGE Agent** → Evaluates both sides
-
----
-
-### ⚡ Real-Time Streaming
-
-* Token-by-token output using Python `yield`
-* Low latency & live experience
-
----
-
-### 🔄 Shared Context System
-
-* Maintains memory across agents
-* Enables coherent multi-step reasoning
-
----
-
-### 🖥️ Interactive UI
-
-* Built with Gradio `ChatInterface`
-* Clean and responsive chat layout
-
----
-
-### 🔒 Fully Local & Private
-
-* Runs on **Ollama (llama3.2)**
-* No external API calls
-* Complete data privacy
-
----
-
-## 📌 Highlights
-
-✔ Multi-agent orchestration system
-✔ Real-time streaming architecture
-✔ Local LLM execution (privacy-first)
-✔ Context-aware reasoning across agents
-✔ Clean modular design
 
 ---
 
 ## 🏗️ System Architecture
 
-```text
-User Input (Topic)
-        ↓
-Prompt Builder (Injects History)
-        ↓
-🟢 FOR Agent (Argument Generation)
-        ↓
-🔴 AGAINST Agent (Counter Argument)
-        ↓
-⚖️ JUDGE Agent (Evaluation & Verdict)
-        ↓
-Final Output (Structured Debate)
 ```
+                        ┌─────────────────────┐
+                        │    User Input        │
+                        │  (Debate Topic)      │
+                        └──────────┬──────────┘
+                                   │
+                        ┌──────────▼──────────┐
+                        │   Prompt Builder     │
+                        │  Injects history +   │
+                        │  role context        │
+                        └──────────┬──────────┘
+                                   │
+               ┌───────────────────┼───────────────────┐
+               │                                       │
+    ┌──────────▼──────┐                       ┌────────▼────────┐
+    │  🟢 FOR Agent   │                       │ 🔴 AGAINST Agent│
+    │                 │                       │                 │
+    │ Supports the    │                       │ Challenges the  │
+    │ argument with   │                       │ argument with   │
+    │ strong points   │                       │ counter-logic   │
+    └──────────┬──────┘                       └────────┬────────┘
+               │                                       │
+               └──────────────┐         ┌─────────────┘
+                              │         │
+                        ┌─────▼─────────▼─────┐
+                        │   ⚖️  JUDGE Agent    │
+                        │                      │
+                        │  Evaluates both sides│
+                        │  Scores reasoning    │
+                        │  Delivers verdict    │
+                        └──────────┬───────────┘
+                                   │
+                        ┌──────────▼──────────┐
+                        │   Structured Output  │
+                        │  Debate + Verdict    │
+                        └─────────────────────┘
+
+         Shared Context Buffer:
+         [ FOR output ]          → injected into AGAINST prompt
+         [ FOR + AGAINST output ] → injected into JUDGE prompt
+```
+
+---
+
+## 🚀 Core Features
+
+### 🧠 Multi-Agent Orchestration
+Three specialized agents with distinct roles, each operating on a tailored system prompt and receiving prior agent context before generating output.
+
+| Agent | Role | Behavior |
+|-------|------|----------|
+| 🟢 **FOR** | Advocate | Builds the strongest case in favor |
+| 🔴 **AGAINST** | Challenger | Counters with opposing logic |
+| ⚖️ **JUDGE** | Evaluator | Scores both sides, delivers verdict |
+
+### ⚡ Real-Time Token Streaming
+Output is streamed token-by-token using Python `yield` — giving a live, low-latency debate experience directly in the Gradio UI.
+
+### 🔄 Shared Context System
+Each agent receives the full output of previous agents before responding — enabling coherent, multi-step reasoning rather than isolated answers.
+
+### 🔒 Fully Local & Private
+- Runs entirely on **Ollama (llama3.2)** — no API keys, no cloud calls
+- All processing stays on your machine
+- Zero data leaves your environment
+
+### 🖥️ Interactive Gradio UI
+Clean `ChatInterface` layout — just type a topic and watch the debate unfold.
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Layer        | Technology                 |
-| ------------ | -------------------------- |
-| 🐍 Backend   | Python                     |
-| 🧠 LLM       | Ollama (llama3.2)          |
-| 🎨 UI        | Gradio                     |
-| 🔌 API Layer | OpenAI SDK (Local Wrapper) |
+| Layer | Technology | Purpose |
+|-------|-----------|---------|
+| 🐍 Backend | Python 3.10+ | Agent orchestration & streaming logic |
+| 🧠 LLM | Ollama — llama3.2 | Local inference engine |
+| 🎨 UI | Gradio ChatInterface | Web-based interactive frontend |
+| 🔌 API Layer | OpenAI SDK (local wrapper) | Standardized LLM call interface |
 
 ---
 
 ## ⚙️ Installation & Setup
 
-### 1️⃣ Clone Repository
+### 1️⃣ Clone the Repository
 
-```bash id="clone1"
+```bash
 git clone https://github.com/TheShivaji/llm-multi-agent-debate.git
 cd llm-multi-agent-debate
 ```
 
-### 2️⃣ Install Dependencies
+### 2️⃣ Install Python Dependencies
 
-```bash id="install1"
+```bash
 pip install -r requirements.txt
 ```
 
-### 3️⃣ Start Local LLM (Ollama)
+### 3️⃣ Pull & Start the Local LLM
 
-```bash id="ollama1"
+```bash
+# Pull the model (first time only)
+ollama pull llama3.2
+
+# Start the model server
 ollama run llama3.2
 ```
 
----
+> 💡 Make sure Ollama is running at `http://localhost:11434` before launching the app.
 
-### 4️⃣ Run the App
+### 4️⃣ Launch the App
 
-```bash id="run1"
+```bash
 python app.py
 ```
 
+App opens at → `http://localhost:7860`
+
 ---
 
-## 🧪 Example Topics
+## 🧪 Try These Debate Topics
 
-Try testing the system with:
-
-* Is AI dangerous for software engineers?
-* Remote work vs in-office work
-* Should college degrees be mandatory in tech?
-* Is open-source better than proprietary software?
+```
+💡 Is AI dangerous for software engineers?
+💡 Remote work vs in-office work — which wins?
+💡 Should college degrees be mandatory in tech?
+💡 Is open-source software better than proprietary?
+💡 Will AGI replace human creativity?
+💡 Is Python the best language for AI?
+```
 
 ---
 
 ## 📁 Project Structure
 
-```text
+```
 llm-multi-agent-debate/
-├── app.py
-├── requirements.txt
+│
+├── app.py                  # Main entry — Gradio UI + agent orchestration
+├── requirements.txt        # Python dependencies
 ├── README.md
 ├── .gitignore
+│
 └── assets/
-    ├── demo1.png
-    ├── demo2.png
-    └── demo3.png
+    ├── demo1.png           # Topic input screenshot
+    ├── demo2.png           # FOR vs AGAINST streaming
+    └── demo3.png           # Judge verdict output
 ```
 
 ---
 
-## 🚀 Future Improvements
+## 🗺️ Roadmap
 
-* 🧠 Add memory persistence (Redis / DB)
-* 🎭 Add dynamic agent personalities
-* 🌐 Deploy with Docker + GPU support
-* 📊 Debate scoring metrics
+| Status | Feature |
+|--------|---------|
+| ✅ Done | 3-agent debate system (FOR / AGAINST / JUDGE) |
+| ✅ Done | Real-time token streaming |
+| ✅ Done | Shared context across agents |
+| ✅ Done | Local Ollama integration |
+| 🔜 Planned | Memory persistence (Redis / SQLite) |
+| 🔜 Planned | Dynamic agent personalities |
+| 🔜 Planned | Docker + GPU deployment |
+| 🔜 Planned | Debate scoring metrics & analytics |
 
 ---
 
 ## 👨‍💻 Author
 
-### **Shivaji Jagdale**
+<div align="center">
 
-🚀 Full-Stack Developer | 🤖 AI Engineer | ⚡ Agentic Systems Builder
+### Shivaji Jagdale
 
-* 🧠 Building **Multi-Agent AI Systems & GenAI Apps**
-* ⚡ Focused on **LLM orchestration & real-time systems**
-* 🔐 Strong foundation in **backend & scalable architecture**
-* 💡 Passionate about solving complex problems with AI
+**Full-Stack Developer · AI Engineer · Agentic Systems Builder**
 
----
+*Building multi-agent AI systems · LLM orchestration & real-time pipelines · Scalable backend architecture*
 
-## 🌐 Connect with Me
+[![GitHub](https://img.shields.io/badge/GitHub-TheShivaji-181717?style=for-the-badge&logo=github)](https://github.com/TheShivaji)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/your-link)
+[![Email](https://img.shields.io/badge/Email-Contact-EA4335?style=for-the-badge&logo=gmail)](mailto:your-email@example.com)
 
-* 🐙 GitHub: https://github.com/TheShivaji
-* 💼 LinkedIn: https://linkedin.com/in/your-link
-* 📧 Email: [your-email@example.com](mailto:your-email@example.com)
-
----
-
-## ⭐ Support
-
-If you found this project useful:
-
-⭐ Star this repo
-🍴 Fork it
-📢 Share it
+</div>
 
 ---
 
 ## 🤝 Contributing
 
-Pull requests are welcome!
-For major changes, please open an issue first.
+Pull requests are welcome! For major changes, open an issue first.
+
+```
+1. Fork the repo
+2. Create your branch    →  git checkout -b feature/new-agent
+3. Commit your changes   →  git commit -m 'feat: add new agent role'
+4. Push to the branch    →  git push origin feature/new-agent
+5. Open a Pull Request
+```
 
 ---
 
+## ⭐ Support
 
+If this project helped you learn about multi-agent AI:
+
+- ⭐ **Star** the repo — it helps others discover it
+- 🍴 **Fork** it — build your own debate variant
+- 📢 **Share** it — with devs exploring Agentic AI
+
+---
+
+<div align="center">
+
+Built with 🤖 by [Shivaji Jagdale](https://github.com/TheShivaji)
+
+*Not just an AI app. An AI that argues with itself.*
+
+</div>
