@@ -223,10 +223,6 @@ llm-multi-agent-debate/
 | ✅ Done | Real-time token streaming |
 | ✅ Done | Shared context across agents |
 | ✅ Done | Local Ollama integration |
-| 🔜 Planned | Memory persistence (Redis / SQLite) |
-| 🔜 Planned | Dynamic agent personalities |
-| 🔜 Planned | Docker + GPU deployment |
-| 🔜 Planned | Debate scoring metrics & analytics |
 
 ---
 
